@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -6,6 +7,9 @@
 </head>
 <body>
 	<h3>My custom login page</h3>
+	<c:if test="${param.error != null}">
+		<i> Sorry! invalid username/password.</i>
+	</c:if>
 	<form:form action="${pageContext.request.contextPath}/authenticateTheUser"
 				method="POST">
 		<p>
